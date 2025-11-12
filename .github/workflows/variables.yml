@@ -4,7 +4,7 @@ env:
   cat_name: "Puszek"
 jobs:
   display-variables:
-    name: ${{ env.ENVIRONMENT_VAR }}
+    name: ${{ var.ENVIRONMENT_VAR }}
     runs-on: ubuntu-latest
     steps:
     - name: Use variables 1
