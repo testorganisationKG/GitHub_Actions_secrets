@@ -8,7 +8,8 @@ jobs:
     steps:
       - name: Set color
         id: color-selector
-        run: <USTAW ZMIENNĄ >
+        run: 
+          echo "COLOR=zielen" >> "$GITHUB_OUTPUT"
       - name: Get color
         run: echo "The selected color is $COLOR"
         
