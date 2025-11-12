@@ -1,0 +1,46 @@
+name: passing job values
+on:
+  workflow_dispatch:
+
+jobs:
+  pass_in_one_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set color
+        id: color-selector
+        run: <USTAW ZMIENNĄ >
+      - name: Get color
+        run: echo "The selected color is $COLOR"
+        
+  producer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make a sentence
+        id: sentence_maker
+        run: |
+          # USTAW ZMIENNĄ ŚRODOWISKOWĄ
+  
+  consumer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the message
+        run: |
+          echo $message
+  
+  job_1:
+    name: Add 3 and 7
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          expr 3 + 7 > NAZWA_PLIKU_Z_WYNIKIEM
+  
+  job_2:
+    name: Multiply by 9
+    needs: job_1
+    runs-on: windows-latest
+    steps:
+      - shell: bash
+        run: |
+          value=`cat NAZWA_PLIKU_Z_ARTEFAKTU`
+          echo $(expr $value \* 9)
