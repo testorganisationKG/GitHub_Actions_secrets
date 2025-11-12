@@ -9,9 +9,9 @@ jobs:
     steps:
     - name: Use variables 1
       run: |
-        echo "Repository variable : $REPOSITORY_VAR"
-        echo "Organization variable : $ORGANIZATION_VAR"
-        echo "Environment variable : $ENVIRONMENT_VAR"
+        echo "Repository variable : $env.REPOSITORY_VAR"
+        echo "Organization variable : $env.ORGANIZATION_VAR"
+        echo "Environment variable : $env.ENVIRONMENT_VAR"
         echo "Ala ma kota o nazwie <WYPISZ TU IMIĘ KOTA ZAPISANE W ZMIENNEJ
         cat_name>"
         echo "Powinna być zmienna w scopie workflow:$WORKFLOW_VAR"
