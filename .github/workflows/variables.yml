@@ -1,10 +1,11 @@
 on:
-  workflow_dispatch:
+  workflow_dispatch:https://github.com/testorganisationKG/GitHub_Actions_secrets/edit/main/.github/workflows/variables.yml#
 env:
   cat_name: "Puszek"
 jobs:
   display-variables:
     name: ${{ vars.ENVIRONMENT_VAR }}
+    environment: test
     runs-on: ubuntu-latest
     steps:
     - name: Use variables 1
@@ -12,7 +13,7 @@ jobs:
         echo "Repository variable : ${{ vars.REPOSITORY_VAR }}"
         echo "Organization variable :  ${{ vars.ORGANIZATION_VAR }}"
         echo "Environment variable : ${{ vars.ENVIRONMENT_VAR }}"
-        echo "Ala ma kota o nazwie $env.cat_name"
+        echo "Ala ma kota o nazwie $cat_name"
         echo "Powinna być zmienna w scopie workflow:$WORKFLOW_VAR"
         echo "Powinna być zmienna w scopie joba:$JOB_VAR"
         echo "Powinna być zmienna w scopie stepu:$STEP_VAR"
