@@ -3,13 +3,15 @@ on:
 env:
   cat_name: "Puszek"
   WORKFLOW_VAR: "workflow var"
+  
 jobs:
   display-variables:
-    name: ${{ vars.ENVIRONMENT_VAR }}
+    name: "${{ vars.ENVIRONMENT_VAR }}"
     runs-on: ubuntu-latest
     env:
       JOB_VAR: "job var"
     environment: test
+    
     steps:
     - name: Use variables 1
       run: |
@@ -22,20 +24,24 @@ jobs:
         echo "Powinna być zmienna w scopie stepu:$STEP_VAR"
       env:
         STEP_VAR: "step var"
+    
     - name: Use variables 1
       run: |
         echo "Ala ma kota o nazwie $cat_name"
         echo "Powinna być zmienna w scopie workflow:$WORKFLOW_VAR"
         echo "Powinna być zmienna w scopie joba:$JOB_VAR"
         echo "NIE powinna być zmienna w scopie stepu:$STEP_VAR"
+  
   display-variables2:
     runs-on: ubuntu-latest
+    
     steps:
     - name: Use variables in display-variables2
       run: |
         echo "Powinna być zmienna w scopie workflow:$WORKFLOW_VAR"
         echo "NIE powinna być zmienna w scopie joba:$JOB_VAR"
         echo "NIE powinna być zmienna w scopie stepu:$STEP_VAR"
+    
     - name: All env vars
       run: |
         env
