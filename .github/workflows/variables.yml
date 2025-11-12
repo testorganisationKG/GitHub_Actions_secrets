@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Use variables 1
       run: |
-        echo "Repository variable : $env.REPOSITORY_VAR"
+        echo "Repository variable : ${{ REPOSITORY_VAR }}"
         echo "Organization variable : $env.ORGANIZATION_VAR"
         echo "Environment variable : $env.ENVIRONMENT_VAR"
         echo "Ala ma kota o nazwie <WYPISZ TU IMIĘ KOTA ZAPISANE W ZMIENNEJ
