@@ -45,6 +45,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: NAZWA_PLIKU_Z_WYNIKIEM
+          path: NAZWA_PLIKU_Z_WYNIKIEM
   
   job_2:
     name: Multiply by 9
