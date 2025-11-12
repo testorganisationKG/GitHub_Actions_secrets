@@ -24,8 +24,7 @@ jobs:
         STEP_VAR: "step var"
     - name: Use variables 1
       run: |
-        echo "Ala ma kota o nazwie <WYPISZ TU IMIĘ KOTA ZAPISANE W ZMIENNEJ
-        cat_name>"
+        echo "Ala ma kota o nazwie $cat_name"
         echo "Powinna być zmienna w scopie workflow:$WORKFLOW_VAR"
         echo "Powinna być zmienna w scopie joba:$JOB_VAR"
         echo "NIE powinna być zmienna w scopie stepu:$STEP_VAR"
