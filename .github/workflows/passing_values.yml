@@ -19,12 +19,17 @@ jobs:
       - name: Make a sentence
         id: sentence_maker
         run: |
-          # USTAW ZMIENNĄ ŚRODOWISKOWĄ
+          echo "SENTENCE=Ala ma moto" >> "$GITHUB_OUTPUT"
+    outputs:
+      SENTENCE_MAKER: ${{ steps.sentence_maker.outputs.SENTENCE }}
   
   consumer:
     runs-on: ubuntu-latest
+    needs: [ producer ]
     steps:
       - name: Print the message
+        env:
+          message: ${{ needs.consumer.outputs.SENTENCE_MAKER }}
         run: |
           echo $message
   
@@ -35,6 +40,11 @@ jobs:
       - shell: bash
         run: |
           expr 3 + 7 > NAZWA_PLIKU_Z_WYNIKIEM
+
+      - name: execfile
+        uses: actions/upload-artifact@v4
+        with:
+          name: NAZWA_PLIKU_Z_WYNIKIEM
   
   job_2:
     name: Multiply by 9
@@ -45,3 +55,7 @@ jobs:
         run: |
           value=`cat NAZWA_PLIKU_Z_ARTEFAKTU`
           echo $(expr $value \* 9)
+      - name: execfile
+        uses: actions/download-artifact@v4
+        with:
+          name: NAZWA_PLIKU_Z_WYNIKIEM
