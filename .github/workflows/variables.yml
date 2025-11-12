@@ -1,5 +1,5 @@
 on:
-  workflow_dispatch:https://github.com/testorganisationKG/GitHub_Actions_secrets/edit/main/.github/workflows/variables.yml#
+  workflow_dispatch:
 env:
   cat_name: "Puszek"
 jobs:
