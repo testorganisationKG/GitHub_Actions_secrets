@@ -52,11 +52,12 @@ jobs:
     needs: job_1
     runs-on: windows-latest
     steps:
-      - shell: bash
-        run: |
-          value=`cat NAZWA_PLIKU_Z_WYNIKIEM`
-          echo $(expr $value \* 9)
+
       - name: execfile
         uses: actions/download-artifact@v4
         with:
           name: NAZWA_PLIKU_Z_WYNIKIEM
+      - shell: bash
+        run: |
+          value=`cat NAZWA_PLIKU_Z_WYNIKIEM`
+          echo $(expr $value \* 9)
