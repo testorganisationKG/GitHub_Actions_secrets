@@ -4,6 +4,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: test
     steps:
       - name: Get ClI_Secret1
         env:
